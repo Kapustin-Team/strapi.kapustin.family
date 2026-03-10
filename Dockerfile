@@ -19,12 +19,8 @@ RUN apk add --no-cache vips-dev
 
 WORKDIR /opt/app
 
-COPY --from=build /opt/app/dist ./dist
-COPY --from=build /opt/app/node_modules ./node_modules
-COPY --from=build /opt/app/package.json ./
-COPY --from=build /opt/app/public ./public
-COPY --from=build /opt/app/favicon.png ./
-COPY --from=build /opt/app/database ./database
+# Copy everything (Strapi needs full project structure at runtime)
+COPY --from=build /opt/app ./
 
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
