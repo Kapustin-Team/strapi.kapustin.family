@@ -1,0 +1,23 @@
+{
+  "name": "strapi-kapustin-family",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Strapi CMS for kapustin.family task management",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/strapi": "^5.38.0",
+    "@strapi/plugin-users-permissions": "^5.38.0",
+    "@strapi/plugin-i18n": "^5.38.0",
+    "@strapi/plugin-cloud": "^5.38.0",
+    "pg": "^8.13.0"
+  },
+  "engines": {
+    "node": ">=20.0.0 <=24.x.x",
+    "npm": ">=6.0.0"
+  }
+}
