@@ -1,23 +1,41 @@
 {
-  "name": "strapi-kapustin-family",
-  "private": true,
+  "name": "strapi-kapustin-family-new",
   "version": "0.1.0",
-  "description": "Strapi CMS for kapustin.family task management",
+  "private": true,
+  "description": "A Strapi application",
   "scripts": {
+    "build": "strapi build",
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
     "develop": "strapi develop",
     "start": "strapi start",
-    "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
-    "@strapi/strapi": "^5.38.0",
-    "@strapi/plugin-users-permissions": "^5.38.0",
-    "@strapi/plugin-i18n": "^5.38.0",
-    "@strapi/plugin-cloud": "^5.38.0",
-    "pg": "^8.13.0"
+    "@strapi/plugin-cloud": "5.38.0",
+    "@strapi/plugin-users-permissions": "5.38.0",
+    "@strapi/strapi": "5.38.0",
+    "pg": "^8.20.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
   },
   "engines": {
     "node": ">=20.0.0 <=24.x.x",
     "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "a9dca9c3-dfe2-45b3-9d4b-c7b588b73eeb",
+    "installId": "543fb9d16ae8398ac6a2457f9133e080781ba628b69a89a1b4c0b37db7f42b8e"
   }
 }
