@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workout_sets",
+  "info": {
+    "singularName": "workout-set",
+    "pluralName": "workout-sets",
+    "displayName": "Workout Set",
+    "description": "Подходы в тренировке — упражнение, повторения, вес"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "workout": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::workout.workout",
+      "inversedBy": "sets"
+    },
+    "exercise": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::exercise-type.exercise-type"
+    },
+    "setOrder": {
+      "type": "integer",
+      "required": true,
+      "column": {
+        "comment": "Порядковый номер подхода"
+      }
+    },
+    "reps": {
+      "type": "integer",
+      "column": {
+        "comment": "Количество повторений"
+      }
+    },
+    "weightKg": {
+      "type": "decimal",
+      "column": {
+        "comment": "Вес в кг"
+      }
+    },
+    "durationSeconds": {
+      "type": "integer",
+      "column": {
+        "comment": "Длительность в секундах (для планки, кардио)"
+      }
+    },
+    "distanceMeters": {
+      "type": "decimal",
+      "column": {
+        "comment": "Дистанция в метрах (для бега, велосипеда)"
+      }
+    },
+    "restSeconds": {
+      "type": "integer",
+      "column": {
+        "comment": "Отдых после подхода в секундах"
+      }
+    },
+    "isWarmup": {
+      "type": "boolean",
+      "default": false
+    },
+    "isDropSet": {
+      "type": "boolean",
+      "default": false
+    },
+    "isToFailure": {
+      "type": "boolean",
+      "default": false
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}

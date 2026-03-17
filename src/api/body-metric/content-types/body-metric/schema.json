@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "body_metrics",
+  "info": {
+    "singularName": "body-metric",
+    "pluralName": "body-metrics",
+    "displayName": "Body Metric",
+    "description": "Измерения тела — вес, жир, объёмы"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "measuredAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "weight": {
+      "type": "decimal",
+      "column": {
+        "comment": "Вес в кг"
+      }
+    },
+    "bodyFatPercent": {
+      "type": "decimal",
+      "column": {
+        "comment": "Процент жира"
+      }
+    },
+    "muscleMassKg": {
+      "type": "decimal",
+      "column": {
+        "comment": "Мышечная масса в кг"
+      }
+    },
+    "waterPercent": {
+      "type": "decimal",
+      "column": {
+        "comment": "Процент воды"
+      }
+    },
+    "waistCm": {
+      "type": "decimal",
+      "column": {
+        "comment": "Обхват талии см"
+      }
+    },
+    "chestCm": {
+      "type": "decimal",
+      "column": {
+        "comment": "Обхват груди см"
+      }
+    },
+    "bicepsCm": {
+      "type": "decimal",
+      "column": {
+        "comment": "Обхват бицепса см"
+      }
+    },
+    "bmi": {
+      "type": "decimal",
+      "column": {
+        "comment": "Индекс массы тела"
+      }
+    },
+    "visceralFat": {
+      "type": "integer",
+      "column": {
+        "comment": "Уровень висцерального жира"
+      }
+    },
+    "notes": {
+      "type": "text"
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": ["manual", "smart_scale", "whoop", "other"],
+      "default": "manual"
+    }
+  }
+}

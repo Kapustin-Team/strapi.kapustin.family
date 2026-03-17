@@ -1,0 +1,114 @@
+{
+  "kind": "collectionType",
+  "collectionName": "whoop_sleeps",
+  "info": {
+    "singularName": "whoop-sleep",
+    "pluralName": "whoop-sleeps",
+    "displayName": "WHOOP Sleep",
+    "description": "Сон WHOOP — качество, стадии, дыхание"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "sleepDate": {
+      "type": "date",
+      "required": true,
+      "unique": true
+    },
+    "startedAt": {
+      "type": "datetime",
+      "column": {
+        "comment": "Время засыпания"
+      }
+    },
+    "endedAt": {
+      "type": "datetime",
+      "column": {
+        "comment": "Время пробуждения"
+      }
+    },
+    "sleepScore": {
+      "type": "decimal",
+      "column": {
+        "comment": "Sleep performance % (0-100)"
+      }
+    },
+    "sleepNeededMs": {
+      "type": "biginteger",
+      "column": {
+        "comment": "Сколько нужно было сна (ms)"
+      }
+    },
+    "totalSleepMs": {
+      "type": "biginteger",
+      "column": {
+        "comment": "Общее время сна (ms)"
+      }
+    },
+    "totalSleepHours": {
+      "type": "decimal",
+      "column": {
+        "comment": "Общее время сна (часы, для удобства)"
+      }
+    },
+    "remSleepMs": {
+      "type": "biginteger",
+      "column": {
+        "comment": "REM фаза (ms)"
+      }
+    },
+    "deepSleepMs": {
+      "type": "biginteger",
+      "column": {
+        "comment": "Глубокий сон (ms)"
+      }
+    },
+    "lightSleepMs": {
+      "type": "biginteger",
+      "column": {
+        "comment": "Лёгкий сон (ms)"
+      }
+    },
+    "awakeMs": {
+      "type": "biginteger",
+      "column": {
+        "comment": "Время бодрствования в кровати (ms)"
+      }
+    },
+    "sleepLatencyMs": {
+      "type": "biginteger",
+      "column": {
+        "comment": "Время засыпания (ms)"
+      }
+    },
+    "sleepConsistency": {
+      "type": "decimal",
+      "column": {
+        "comment": "Консистентность сна %"
+      }
+    },
+    "sleepEfficiency": {
+      "type": "decimal",
+      "column": {
+        "comment": "Эффективность сна %"
+      }
+    },
+    "respiratoryRate": {
+      "type": "decimal",
+      "column": {
+        "comment": "Частота дыхания (вдохов/мин)"
+      }
+    },
+    "isNap": {
+      "type": "boolean",
+      "default": false,
+      "column": {
+        "comment": "Это дневной сон?"
+      }
+    },
+    "whoopSleepId": {
+      "type": "biginteger"
+    }
+  }
+}

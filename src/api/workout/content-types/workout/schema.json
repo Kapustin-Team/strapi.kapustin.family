@@ -1,0 +1,101 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workouts",
+  "info": {
+    "singularName": "workout",
+    "pluralName": "workouts",
+    "displayName": "Workout",
+    "description": "Тренировочные сессии"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "startedAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "endedAt": {
+      "type": "datetime"
+    },
+    "durationMinutes": {
+      "type": "integer",
+      "column": {
+        "comment": "Длительность в минутах"
+      }
+    },
+    "workoutType": {
+      "type": "enumeration",
+      "enum": [
+        "strength",
+        "cardio",
+        "hiit",
+        "stretching",
+        "yoga",
+        "swimming",
+        "running",
+        "cycling",
+        "walking",
+        "sports",
+        "other"
+      ],
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "column": {
+        "comment": "Название тренировки (Грудь+Трицепс, Ноги, и тд)"
+      }
+    },
+    "avgHeartRate": {
+      "type": "integer"
+    },
+    "maxHeartRate": {
+      "type": "integer"
+    },
+    "caloriesBurned": {
+      "type": "integer"
+    },
+    "whoopStrain": {
+      "type": "decimal",
+      "column": {
+        "comment": "WHOOP strain от этой тренировки"
+      }
+    },
+    "rpe": {
+      "type": "integer",
+      "min": 1,
+      "max": 10,
+      "column": {
+        "comment": "RPE — субъективная тяжесть 1-10"
+      }
+    },
+    "mood": {
+      "type": "enumeration",
+      "enum": ["great", "good", "ok", "bad", "terrible"],
+      "column": {
+        "comment": "Настроение после тренировки"
+      }
+    },
+    "location": {
+      "type": "string",
+      "column": {
+        "comment": "Где тренировался (зал, дом, улица)"
+      }
+    },
+    "notes": {
+      "type": "text"
+    },
+    "sets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::workout-set.workout-set",
+      "mappedBy": "workout"
+    },
+    "whoopCycle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::whoop-cycle.whoop-cycle"
+    }
+  }
+}

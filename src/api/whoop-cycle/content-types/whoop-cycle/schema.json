@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "whoop_cycles",
+  "info": {
+    "singularName": "whoop-cycle",
+    "pluralName": "whoop-cycles",
+    "displayName": "WHOOP Cycle",
+    "description": "Дневной цикл WHOOP — strain, калории, пульс"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "cycleDate": {
+      "type": "date",
+      "required": true,
+      "unique": true
+    },
+    "startedAt": {
+      "type": "datetime"
+    },
+    "endedAt": {
+      "type": "datetime"
+    },
+    "strain": {
+      "type": "decimal",
+      "required": true,
+      "column": {
+        "comment": "Day strain 0-21"
+      }
+    },
+    "kilojoules": {
+      "type": "decimal",
+      "column": {
+        "comment": "Калории сожжённые (kJ)"
+      }
+    },
+    "calories": {
+      "type": "decimal",
+      "column": {
+        "comment": "Калории сожжённые (kcal)"
+      }
+    },
+    "avgHeartRate": {
+      "type": "integer",
+      "column": {
+        "comment": "Средний пульс за день"
+      }
+    },
+    "maxHeartRate": {
+      "type": "integer",
+      "column": {
+        "comment": "Максимальный пульс за день"
+      }
+    },
+    "whoopCycleId": {
+      "type": "biginteger",
+      "column": {
+        "comment": "ID цикла в WHOOP API"
+      }
+    }
+  }
+}

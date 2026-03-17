@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "exercise_types",
+  "info": {
+    "singularName": "exercise-type",
+    "pluralName": "exercise-types",
+    "displayName": "Exercise Type",
+    "description": "Каталог упражнений — типовые упражнения Димы"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "column": {
+        "comment": "Название упражнения"
+      }
+    },
+    "nameEn": {
+      "type": "string",
+      "column": {
+        "comment": "Название на английском"
+      }
+    },
+    "muscleGroup": {
+      "type": "enumeration",
+      "enum": [
+        "chest",
+        "back",
+        "shoulders",
+        "biceps",
+        "triceps",
+        "forearms",
+        "abs",
+        "quadriceps",
+        "hamstrings",
+        "glutes",
+        "calves",
+        "full_body",
+        "cardio",
+        "other"
+      ],
+      "required": true
+    },
+    "exerciseCategory": {
+      "type": "enumeration",
+      "enum": [
+        "barbell",
+        "dumbbell",
+        "machine",
+        "cable",
+        "bodyweight",
+        "kettlebell",
+        "cardio_machine",
+        "outdoor",
+        "stretching",
+        "other"
+      ],
+      "required": true
+    },
+    "isCompound": {
+      "type": "boolean",
+      "default": false,
+      "column": {
+        "comment": "Многосуставное упражнение?"
+      }
+    },
+    "description": {
+      "type": "text"
+    },
+    "notes": {
+      "type": "text",
+      "column": {
+        "comment": "Персональные заметки — техника, ощущения"
+      }
+    }
+  }
+}

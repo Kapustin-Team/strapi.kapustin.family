@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "supplement_logs",
+  "info": {
+    "singularName": "supplement-log",
+    "pluralName": "supplement-logs",
+    "displayName": "Supplement Log",
+    "description": "Лог добавок и витаминов"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "takenAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "column": {
+        "comment": "Название добавки (витамин D, креатин, омега-3...)"
+      }
+    },
+    "dosage": {
+      "type": "string",
+      "column": {
+        "comment": "Дозировка (5000 IU, 5g, 1000mg)"
+      }
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "vitamin",
+        "mineral",
+        "amino_acid",
+        "protein",
+        "creatine",
+        "omega",
+        "probiotic",
+        "nootropic",
+        "herbal",
+        "other"
+      ]
+    },
+    "notes": {
+      "type": "text"
+    }
+  }
+}
