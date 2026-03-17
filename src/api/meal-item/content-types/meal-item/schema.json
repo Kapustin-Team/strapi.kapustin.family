@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "meal_items",
+  "info": {
+    "singularName": "meal-item",
+    "pluralName": "meal-items",
+    "displayName": "Meal Item",
+    "description": "Отдельные продукты в приёме пищи"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "meal": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::meal.meal",
+      "inversedBy": "items"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "column": {
+        "comment": "Название продукта"
+      }
+    },
+    "amountG": {
+      "type": "decimal",
+      "column": {
+        "comment": "Количество в граммах"
+      }
+    },
+    "amountUnit": {
+      "type": "string",
+      "column": {
+        "comment": "Единица (шт, мл, ст.л., порция)"
+      }
+    },
+    "calories": {
+      "type": "integer"
+    },
+    "proteinG": {
+      "type": "decimal"
+    },
+    "fatG": {
+      "type": "decimal"
+    },
+    "carbsG": {
+      "type": "decimal"
+    }
+  }
+}

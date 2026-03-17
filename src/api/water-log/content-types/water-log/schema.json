@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "water_logs",
+  "info": {
+    "singularName": "water-log",
+    "pluralName": "water-logs",
+    "displayName": "Water Log",
+    "description": "Потребление воды"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "drankAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "amountMl": {
+      "type": "integer",
+      "required": true
+    },
+    "drinkType": {
+      "type": "enumeration",
+      "enum": ["water", "tea", "coffee", "juice", "sports_drink", "other"],
+      "default": "water"
+    }
+  }
+}

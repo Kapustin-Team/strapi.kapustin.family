@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "meals",
+  "info": {
+    "singularName": "meal",
+    "pluralName": "meals",
+    "displayName": "Meal",
+    "description": "Приёмы пищи"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "eatenAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "mealType": {
+      "type": "enumeration",
+      "enum": ["breakfast", "lunch", "dinner", "snack", "pre_workout", "post_workout"],
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "column": {
+        "comment": "Краткое описание (Овсянка с ягодами, Куриная грудка с рисом)"
+      }
+    },
+    "calories": {
+      "type": "integer"
+    },
+    "proteinG": {
+      "type": "decimal",
+      "column": {
+        "comment": "Белки (г)"
+      }
+    },
+    "fatG": {
+      "type": "decimal",
+      "column": {
+        "comment": "Жиры (г)"
+      }
+    },
+    "carbsG": {
+      "type": "decimal",
+      "column": {
+        "comment": "Углеводы (г)"
+      }
+    },
+    "fiberG": {
+      "type": "decimal",
+      "column": {
+        "comment": "Клетчатка (г)"
+      }
+    },
+    "sugarG": {
+      "type": "decimal",
+      "column": {
+        "comment": "Сахар (г)"
+      }
+    },
+    "waterMl": {
+      "type": "integer",
+      "column": {
+        "comment": "Вода выпитая с этим приёмом (мл)"
+      }
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "notes": {
+      "type": "text"
+    },
+    "items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::meal-item.meal-item",
+      "mappedBy": "meal"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "daily_nutritions",
+  "info": {
+    "singularName": "daily-nutrition",
+    "pluralName": "daily-nutritions",
+    "displayName": "Daily Nutrition",
+    "description": "Итоги питания за день — КБЖУ, вода, оценка"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "date": {
+      "type": "date",
+      "required": true,
+      "unique": true
+    },
+    "totalCalories": {
+      "type": "integer"
+    },
+    "totalProteinG": {
+      "type": "decimal"
+    },
+    "totalFatG": {
+      "type": "decimal"
+    },
+    "totalCarbsG": {
+      "type": "decimal"
+    },
+    "totalFiberG": {
+      "type": "decimal"
+    },
+    "totalSugarG": {
+      "type": "decimal"
+    },
+    "totalWaterMl": {
+      "type": "integer"
+    },
+    "mealsCount": {
+      "type": "integer"
+    },
+    "proteinPerKg": {
+      "type": "decimal",
+      "column": {
+        "comment": "Белок на кг массы тела"
+      }
+    },
+    "calorieTarget": {
+      "type": "integer",
+      "column": {
+        "comment": "Целевые калории на день"
+      }
+    },
+    "proteinTarget": {
+      "type": "integer",
+      "column": {
+        "comment": "Целевой белок (г)"
+      }
+    },
+    "isCheatDay": {
+      "type": "boolean",
+      "default": false
+    },
+    "dietaryNotes": {
+      "type": "text"
+    }
+  }
+}
