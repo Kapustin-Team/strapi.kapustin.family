@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "agent_tasks",
+  "info": {
+    "singularName": "agent-task",
+    "pluralName": "agent-tasks",
+    "displayName": "Agent Task",
+    "description": "Задачи ИИ агентов по разметке данных и другие"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "description": { "type": "richtext" },
+    "agentName": {
+      "type": "enumeration",
+      "enum": ["milena", "aleksandra", "kristina", "danijela", "jovana", "system"],
+      "required": true
+    },
+    "taskType": {
+      "type": "enumeration",
+      "enum": ["data_labeling", "content_generation", "code_review", "analysis", "research", "deployment", "monitoring", "other"],
+      "default": "other"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["queued", "running", "completed", "failed", "cancelled"],
+      "default": "queued",
+      "required": true
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": ["low", "medium", "high", "critical"],
+      "default": "medium"
+    },
+    "inputData": { "type": "json" },
+    "outputData": { "type": "json" },
+    "errorLog": { "type": "text" },
+    "startedAt": { "type": "datetime" },
+    "completedAt": { "type": "datetime" },
+    "durationMs": { "type": "biginteger" },
+    "tokensCost": { "type": "integer" },
+    "modelUsed": { "type": "string" },
+    "datasetName": { "type": "string" },
+    "labeledCount": { "type": "integer" },
+    "totalCount": { "type": "integer" },
+    "qualityScore": { "type": "decimal" },
+    "retryCount": { "type": "integer", "default": 0 },
+    "metadata": { "type": "json" },
+    "parentTask": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::task.task",
+      "inversedBy": "agentTasks"
+    }
+  }
+}

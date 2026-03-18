@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rpg_buildings",
+  "info": {
+    "singularName": "rpg-building",
+    "pluralName": "rpg-buildings",
+    "displayName": "RPG Building",
+    "description": "Постройки в 3D городе"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "buildingType": {
+      "type": "enumeration",
+      "enum": ["house", "farm", "mine", "library", "market", "barracks", "tower", "lab", "server", "studio"],
+      "required": true
+    },
+    "level": { "type": "integer", "default": 1 },
+    "status": {
+      "type": "enumeration",
+      "enum": ["planned", "under_construction", "active", "damaged", "destroyed"],
+      "default": "planned"
+    },
+    "positionX": { "type": "decimal" },
+    "positionY": { "type": "decimal" },
+    "positionZ": { "type": "decimal" },
+    "rotationY": { "type": "decimal", "default": 0 },
+    "constructionProgress": { "type": "integer", "default": 0 },
+    "buildCost": { "type": "json" },
+    "upkeepCost": { "type": "json" },
+    "production": { "type": "json" },
+    "populationSlots": { "type": "integer", "default": 0 },
+    "description": { "type": "text" },
+    "model3dKey": { "type": "string" },
+    "completedAt": { "type": "datetime" }
+  }
+}

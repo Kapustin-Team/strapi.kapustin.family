@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rpg_characters",
+  "info": {
+    "singularName": "rpg-character",
+    "pluralName": "rpg-characters",
+    "displayName": "RPG Character",
+    "description": "Персонаж игрока"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "level": { "type": "integer", "default": 1 },
+    "xp": { "type": "integer", "default": 0 },
+    "xpToNextLevel": { "type": "integer", "default": 100 },
+    "class": {
+      "type": "enumeration",
+      "enum": ["developer", "designer", "strategist", "explorer", "trader"]
+    },
+    "stats": { "type": "json" },
+    "skills": { "type": "json" },
+    "inventory": { "type": "json" },
+    "achievements": { "type": "json" },
+    "streakDays": { "type": "integer", "default": 0 },
+    "lastActiveAt": { "type": "datetime" },
+    "avatarUrl": { "type": "string" },
+    "cityName": { "type": "string" },
+    "totalTasksCompleted": { "type": "integer", "default": 0 },
+    "totalXpEarned": { "type": "integer", "default": 0 }
+  }
+}

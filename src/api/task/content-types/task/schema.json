@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tasks",
+  "info": {
+    "singularName": "task",
+    "pluralName": "tasks",
+    "displayName": "Task",
+    "description": "Личные задачи Димы"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "description": { "type": "richtext" },
+    "status": {
+      "type": "enumeration",
+      "enum": ["todo", "in_progress", "review", "done", "cancelled"],
+      "default": "todo",
+      "required": true
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": ["low", "medium", "high", "critical"],
+      "default": "medium"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["personal", "work", "health", "learning", "finance", "creative", "rpg"]
+    },
+    "dueDate": { "type": "date" },
+    "completedAt": { "type": "datetime" },
+    "estimatedMinutes": { "type": "integer" },
+    "actualMinutes": { "type": "integer" },
+    "tags": { "type": "json" },
+    "energyCost": { "type": "integer" },
+    "xpReward": { "type": "integer", "default": 10 },
+    "rpgCategory": {
+      "type": "enumeration",
+      "enum": ["build", "research", "trade", "defense", "exploration"]
+    },
+    "notes": { "type": "text" },
+    "agentTasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::agent-task.agent-task",
+      "mappedBy": "parentTask"
+    }
+  }
+}

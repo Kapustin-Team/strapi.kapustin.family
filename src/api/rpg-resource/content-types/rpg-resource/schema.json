@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rpg_resources",
+  "info": {
+    "singularName": "rpg-resource",
+    "pluralName": "rpg-resources",
+    "displayName": "RPG Resource",
+    "description": "Ресурсы в игровой механике"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "resourceType": {
+      "type": "enumeration",
+      "enum": ["gold", "food", "stone", "wood", "knowledge", "influence", "energy", "data", "code", "creativity"],
+      "required": true
+    },
+    "amount": { "type": "decimal", "default": 0 },
+    "maxCapacity": { "type": "decimal" },
+    "productionRate": { "type": "decimal", "default": 0 },
+    "consumptionRate": { "type": "decimal", "default": 0 },
+    "description": { "type": "text" },
+    "icon": { "type": "string" },
+    "color": { "type": "string" },
+    "lastUpdated": { "type": "datetime" }
+  }
+}

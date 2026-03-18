@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rpg_events",
+  "info": {
+    "singularName": "rpg-event",
+    "pluralName": "rpg-events",
+    "displayName": "RPG Event",
+    "description": "Игровые события и история"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "eventType": {
+      "type": "enumeration",
+      "enum": ["task_completed", "building_built", "level_up", "resource_gained", "achievement_unlocked", "agent_task_done", "streak_milestone", "city_expanded"],
+      "required": true
+    },
+    "title": { "type": "string", "required": true },
+    "description": { "type": "text" },
+    "xpGained": { "type": "integer", "default": 0 },
+    "resourceChanges": { "type": "json" },
+    "relatedTaskId": { "type": "string" },
+    "relatedBuildingId": { "type": "string" },
+    "metadata": { "type": "json" },
+    "happenedAt": { "type": "datetime" }
+  }
+}
