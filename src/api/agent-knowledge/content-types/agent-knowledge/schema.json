@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "agent_knowledges",
+  "info": {
+    "singularName": "agent-knowledge",
+    "pluralName": "agent-knowledges",
+    "displayName": "Agent Knowledge",
+    "description": "База знаний AI агентов — долгосрочная память"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "agentId": {
+      "type": "enumeration",
+      "enum": ["milena", "kristina", "danijela", "aleksandra", "jovana", "shared"],
+      "required": true
+    },
+    "topic": {
+      "type": "string",
+      "required": true,
+      "maxLength": 300
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["tech", "project", "person", "preference", "lesson", "process", "tool", "client", "decision", "other"],
+      "required": true
+    },
+    "tags": {
+      "type": "json"
+    },
+    "source": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "confidence": {
+      "type": "enumeration",
+      "enum": ["low", "medium", "high", "verified"],
+      "default": "medium"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "expiresAt": {
+      "type": "datetime"
+    },
+    "relatedProject": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

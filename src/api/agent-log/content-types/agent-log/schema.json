@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "agent_logs",
+  "info": {
+    "singularName": "agent-log",
+    "pluralName": "agent-logs",
+    "displayName": "Agent Log",
+    "description": "Лог действий всех AI агентов"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "agentId": {
+      "type": "enumeration",
+      "enum": ["milena", "kristina", "danijela", "aleksandra", "jovana", "system"],
+      "required": true
+    },
+    "action": {
+      "type": "enumeration",
+      "enum": ["task_completed", "task_started", "decision_made", "error", "delegation", "search", "learning", "communication", "heartbeat", "deployment", "other"],
+      "required": true
+    },
+    "summary": {
+      "type": "string",
+      "required": true,
+      "maxLength": 500
+    },
+    "context": {
+      "type": "richtext"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "importance": {
+      "type": "enumeration",
+      "enum": ["low", "medium", "high", "critical"],
+      "default": "medium"
+    },
+    "sessionId": {
+      "type": "string"
+    },
+    "relatedProject": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}

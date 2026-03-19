@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "agent_decisions",
+  "info": {
+    "singularName": "agent-decision",
+    "pluralName": "agent-decisions",
+    "displayName": "Agent Decision",
+    "description": "Ключевые решения AI агентов с контекстом"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "agentId": {
+      "type": "enumeration",
+      "enum": ["milena", "kristina", "danijela", "aleksandra", "jovana", "system"],
+      "required": true
+    },
+    "decision": {
+      "type": "string",
+      "required": true,
+      "maxLength": 500
+    },
+    "reasoning": {
+      "type": "richtext"
+    },
+    "outcome": {
+      "type": "enumeration",
+      "enum": ["pending", "successful", "failed", "revised", "superseded"],
+      "default": "pending"
+    },
+    "outcomeNotes": {
+      "type": "text"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["architecture", "tooling", "process", "delegation", "priority", "communication", "deployment", "other"],
+      "default": "other"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "relatedProject": {
+      "type": "string"
+    },
+    "importance": {
+      "type": "enumeration",
+      "enum": ["low", "medium", "high", "critical"],
+      "default": "medium"
+    },
+    "metadata": {
+      "type": "json"
+    }
+  }
+}
