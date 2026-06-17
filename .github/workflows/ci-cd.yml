@@ -82,6 +82,6 @@ jobs:
     - name: Deploy to Coolify
       if: success()
       run: |
-        curl -k -sS -X POST "${{ secrets.COOLIFY_WEBHOOK_URL }}" \
+        curl -sS -X POST "${{ secrets.COOLIFY_WEBHOOK_URL }}" \
           -H "Authorization: Bearer ${{ secrets.COOLIFY_DEPLOY_TOKEN }}" \
           --fail-with-body
