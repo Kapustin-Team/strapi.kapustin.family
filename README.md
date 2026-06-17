@@ -1,4 +1,35 @@
-# 🚀 Getting started with Strapi
+# strapi.kapustin.family
+
+Personal Strapi v5 instance for Kapustin family projects, agents, health data, RPG data and life-log ingestion.
+
+## Personal Event / Life-log Inbox
+
+The `personal-event` collection type is the single inbox for Dmitrii's personal event pipeline:
+
+- Ray-Ban Meta photos/videos
+- Plaud audio recordings + transcripts
+- Calendar events
+- Manual notes/input
+- Documents/files and other imports
+
+REST endpoint after deploy:
+
+```http
+GET/POST /api/personal-events
+```
+
+Required fields for every record:
+
+| Field | Type | Purpose |
+|---|---|---|
+| `occurredAt` | `datetime` | Real-world event timestamp |
+| `eventType` | enum | `calendar`, `photo`, `video`, `audio`, `note`, `document`, `manual`, etc. |
+| `source` | enum | `rayban_meta`, `plaud`, `calendar`, `manual`, `telegram`, `api`, etc. |
+| `transcription` | text | Required textual transcript/OCR/caption/calendar text/manual note |
+
+Pipeline fields: `status`, `summary`, `rawText`, `media`, `location`, `people`, `tags`, `entities`, `embeddingText`, `confidence`, `processedAt`, `metadata`, `externalId`.
+
+## 🚀 Getting started with Strapi
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
 

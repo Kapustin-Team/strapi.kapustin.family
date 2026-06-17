@@ -1,0 +1,169 @@
+{
+  "kind": "collectionType",
+  "collectionName": "personal_events",
+  "info": {
+    "singularName": "personal-event",
+    "pluralName": "personal-events",
+    "displayName": "Personal Event",
+    "description": "Life-log inbox: фото/видео Ray-Ban Meta, Plaud аудио, календарь, заметки, документы и ручной ввод для AI agents"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "occurredAt": {
+      "type": "datetime",
+      "required": true,
+      "column": {
+        "comment": "Когда событие реально произошло / было снято / началось в календаре"
+      }
+    },
+    "eventType": {
+      "type": "enumeration",
+      "enum": [
+        "calendar",
+        "photo",
+        "video",
+        "audio",
+        "note",
+        "document",
+        "message",
+        "location",
+        "health",
+        "task",
+        "manual",
+        "other"
+      ],
+      "required": true,
+      "default": "manual"
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": [
+        "rayban_meta",
+        "plaud",
+        "calendar",
+        "manual",
+        "telegram",
+        "phone_upload",
+        "file_import",
+        "api",
+        "agent",
+        "other"
+      ],
+      "required": true,
+      "default": "manual"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 300,
+      "column": {
+        "comment": "Короткий заголовок для inbox/list UI; может быть сгенерирован агентом"
+      }
+    },
+    "transcription": {
+      "type": "text",
+      "required": true,
+      "column": {
+        "comment": "Обязательная текстовая расшифровка: transcript/OCR/caption/calendar text/manual note"
+      }
+    },
+    "summary": {
+      "type": "text",
+      "column": {
+        "comment": "Краткое AI-резюме события для быстрых списков и поиска"
+      }
+    },
+    "rawText": {
+      "type": "richtext",
+      "column": {
+        "comment": "Расширенный сырой текст/markdown: полный transcript, OCR, calendar body, заметка"
+      }
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["inbox", "processing", "processed", "archived", "failed"],
+      "required": true,
+      "default": "inbox"
+    },
+    "timezone": {
+      "type": "string",
+      "default": "Europe/Moscow",
+      "column": {
+        "comment": "IANA timezone источника/события"
+      }
+    },
+    "externalId": {
+      "type": "string",
+      "unique": true,
+      "column": {
+        "comment": "Idempotency key из источника: calendar event id, Plaud id, Ray-Ban asset id, import hash"
+      }
+    },
+    "sourceUrl": {
+      "type": "string",
+      "column": {
+        "comment": "Ссылка на исходник: calendar htmlLink, cloud file URL, original asset URL"
+      }
+    },
+    "calendarStartsAt": {
+      "type": "datetime"
+    },
+    "calendarEndsAt": {
+      "type": "datetime"
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images", "videos", "audios", "files"],
+      "column": {
+        "comment": "Оригинальные фото/видео/аудио/документы, загруженные в Strapi Upload"
+      }
+    },
+    "location": {
+      "type": "json",
+      "column": {
+        "comment": "lat/lng/address/placeId/source, если известно"
+      }
+    },
+    "people": {
+      "type": "json",
+      "column": {
+        "comment": "Участники/контакты/распознанные люди: [{name, role, confidence}]"
+      }
+    },
+    "tags": {
+      "type": "json",
+      "column": {
+        "comment": "Свободные теги для поиска и агентов"
+      }
+    },
+    "entities": {
+      "type": "json",
+      "column": {
+        "comment": "AI-extracted entities: people, orgs, places, topics, tasks, commitments"
+      }
+    },
+    "embeddingText": {
+      "type": "text",
+      "column": {
+        "comment": "Нормализованный текст для будущих embeddings/RAG"
+      }
+    },
+    "confidence": {
+      "type": "decimal",
+      "column": {
+        "comment": "0..1 confidence OCR/transcription/entity extraction"
+      }
+    },
+    "processedAt": {
+      "type": "datetime"
+    },
+    "metadata": {
+      "type": "json",
+      "column": {
+        "comment": "Любые source-specific поля: Plaud duration/lang, Ray-Ban EXIF, calendar raw payload, import pipeline info"
+      }
+    }
+  }
+}
