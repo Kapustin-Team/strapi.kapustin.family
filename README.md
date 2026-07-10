@@ -2,6 +2,30 @@
 
 Personal Strapi v5 instance for Kapustin family projects, agents, health data, RPG data and life-log ingestion.
 
+## Wedding guest privacy contract
+
+`wedding-guest` использует только `POST /api/wedding-guests/lookup`. Generic
+collection/findOne routes не зарегистрированы, поэтому API не перечисляет гостей.
+Slug передаётся в body, а не URL/query, чтобы не попадать в access log.
+
+Маршрут требует scope `api::wedding-guest.wedding-guest.find` и policy
+`global::api-token-only`. Policy отклоняет Users & Permissions Public role даже
+при ошибочной выдаче ему permission. Для frontend создаётся отдельный read-only
+или custom API token только с указанным scope; full-access token не использовать.
+Значение токена хранится только в server-side env frontend-приложения.
+
+Публикация разрешена только после личного подтверждения гостем display name и
+приписки. Подтверждение и персональные данные не публикуются в issue/PR. Для
+отзыва выполните `Unpublish` или удаление записи. Lookup запрашивает только
+`status: published`, без cache, поэтому unknown/revoked/storage-error имеют один
+generic 404 без имени, slug и внутренней ошибки. Frontend также не имеет
+именованного fallback и возвращает 404 при недоступной Strapi.
+
+После revoke проверьте оба URL (`/<slug>` и `/i/<slug>`), общий OG preview,
+`Cache-Control: private, no-store`, `X-Robots-Tag` и отсутствие ПДн в логах и
+error payloads. Shared/static cache не используется; ошибочно настроенный внешний
+CDN нужно purge. Regression test: `npm run test:wedding-guest-privacy`.
+
 ## Personal Event / Life-log Inbox
 
 The `personal-event` collection type is the single inbox for Dmitrii's personal event pipeline:

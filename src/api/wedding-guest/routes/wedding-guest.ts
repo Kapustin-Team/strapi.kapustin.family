@@ -1,3 +1,16 @@
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreRouter('api::wedding-guest.wedding-guest');
+export default {
+  type: 'content-api',
+  routes: [
+    {
+      method: 'POST',
+      path: '/wedding-guests/lookup',
+      handler: 'wedding-guest.lookup',
+      config: {
+        auth: {
+          scope: ['api::wedding-guest.wedding-guest.find'],
+        },
+        policies: ['global::api-token-only'],
+      },
+    },
+  ],
+};
