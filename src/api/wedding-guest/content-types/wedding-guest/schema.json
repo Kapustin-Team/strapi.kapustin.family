@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wedding_guests",
+  "info": {
+    "singularName": "wedding-guest",
+    "pluralName": "wedding-guests",
+    "displayName": "Wedding Guest",
+    "description": "Персональные приглашения wedding.kapustin.family"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "address": {
+      "type": "enumeration",
+      "enum": ["ty", "vy", "plural"],
+      "required": true,
+      "default": "vy"
+    },
+    "note": {
+      "type": "text"
+    }
+  }
+}
