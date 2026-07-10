@@ -39,7 +39,7 @@ test('exposes one API-token-only lookup route and no collection route', () => {
         handler: 'wedding-guest.lookup',
         config: {
           auth: {
-            scope: ['api::wedding-guest.wedding-guest.find'],
+            scope: ['api::wedding-guest.wedding-guest.lookup'],
           },
           policies: ['global::api-token-only'],
         },

@@ -7,7 +7,7 @@ export default {
       handler: 'wedding-guest.lookup',
       config: {
         auth: {
-          scope: ['api::wedding-guest.wedding-guest.find'],
+          scope: ['api::wedding-guest.wedding-guest.lookup'],
         },
         policies: ['global::api-token-only'],
       },
