@@ -8,7 +8,7 @@ Personal Strapi v5 instance for Kapustin family projects, agents, health data, R
 collection/findOne routes не зарегистрированы, поэтому API не перечисляет гостей.
 Slug передаётся в body, а не URL/query, чтобы не попадать в access log.
 
-Маршрут требует scope `api::wedding-guest.wedding-guest.find` и policy
+Маршрут требует scope `api::wedding-guest.wedding-guest.lookup` и policy
 `global::api-token-only`. Policy отклоняет Users & Permissions Public role даже
 при ошибочной выдаче ему permission. Для frontend создаётся отдельный read-only
 или custom API token только с указанным scope; full-access token не использовать.
